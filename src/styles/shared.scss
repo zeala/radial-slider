@@ -1,0 +1,60 @@
+$spinner-size: 550px;
+
+$inner-color: #820008;
+$mid-color: #2f7490;
+$outer-color: #3f505b ;
+$center-color: #00847e;
+$disabled-color: #697a87;
+
+body {
+  font-family: "Arial";
+}
+
+.triangle__container {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin: 2px;
+}
+
+.triangle {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: white;
+  text-align: left;
+  transform: rotate( 45deg);
+  display: inline-block;
+  margin: 1px;
+
+}
+
+.triangle:before,
+.triangle:after {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+  width:  5px;
+  height: 5px;
+  border-top-right-radius: 60%;
+}
+
+.triangle {
+  transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+}
+.triangle:before {
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+

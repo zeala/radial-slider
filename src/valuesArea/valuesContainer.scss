@@ -1,0 +1,114 @@
+@import '../styles/shared';
+
+$background-value1: #EBEDEE;
+$background-value2: #EAF1F4;
+$background-value3: #F2E5E6;
+
+$title-height: 24px;
+
+.values__container {
+  position: absolute;
+  top: 250px;
+  left: 850px;
+}
+
+@mixin values__container-section-title($color) {
+  background-color: $color;
+  height: $title-height;
+  line-height: $title-height;
+  text-align: left;
+  padding-left: 6px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+@mixin values-container-section($color, $backgroundColor) {
+  width: 200px;
+  height: 90px;
+  margin-bottom: 10px;
+  background-color: $backgroundColor;
+  color: $color;
+
+  .values-container__section-title {
+    @include values__container-section-title($color);
+  }
+
+  .values-container__section-content {
+    display: flex;
+    width: 100%;
+    height: calc(100% - #{$title-height});
+    position: relative;
+  }
+
+  .values-container__inner-section {
+    display:inline-block;
+    width: 50%;
+    height: 100%;
+  }
+
+  .values-container__inner-section--left{
+    display:inline-block;
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid $color;
+  }
+
+  .values-container__inner-section-label {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    margin-left: 15px;
+  }
+
+  .values-container__inner-section-value {
+    width: calc(100% - 30px);
+    margin-top: 2px;
+    font-size: 24px;
+    font-weight: 200;
+    margin-left: 15px;
+    position: relative;
+  }
+
+  .values-container__inner-section-delta {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    // padding-bottom: 4px;
+    padding-right: 4px;
+
+    .triangle {
+      background-color: $color;
+      margin-bottom: 5px;
+    }
+
+    .value-box__delta-triangle-container {
+      display: inline-block;
+      width: 10px;
+    }
+
+    .delta-label {
+      text-align: left;
+      font-size: 12px;
+    }
+  }
+}
+
+.values__container-section-1 {
+  @include values-container-section($outer-color, $background-value1);
+}
+
+.values__container-section-2 {
+ @include values-container-section($mid-color, $background-value2);
+}
+
+.values__container-section-3 {
+ @include values-container-section($inner-color, $background-value3);
+}

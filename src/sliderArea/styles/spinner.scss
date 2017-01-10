@@ -1,0 +1,49 @@
+@import '../../styles/shared';
+
+@mixin spinner__container-common {
+  left: 200px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 400px;
+}
+.spinner__container {
+  @include spinner__container-common;
+}
+
+.spinner__spinner {
+
+  width: $spinner-size;
+  height: $spinner-size;
+  position: relative;
+  display: inline-block;
+}
+
+.spinner__bar {
+  border-radius: 0;
+  border-bottom: 1px dashed darkgray;
+  position: absolute;
+  width: 50%;
+  height: 1px;
+  top: 0;
+  left: 0;
+}
+
+.spinner__bar-label {
+  position: absolute;
+  left: 100%;
+  color: black;
+  width: 20px;
+  font-size: 10px;
+  text-align: center;
+  user-select: none;
+  -ms-user-select: none;
+}
+
+.spinner__background {
+  top: 50%;
+  position: absolute;
+  z-index: 0;
+}
+
+

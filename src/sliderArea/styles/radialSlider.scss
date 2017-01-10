@@ -1,0 +1,167 @@
+@import '../../styles/shared';
+
+$top-offset: -43%;
+
+$size_outer: 530px;
+$size_mid: 430px;
+$size_inner: 330px;
+
+$border-radius-outer: 265px;
+$border-radius-mid: 215px;
+$border-radius-inner: 165px;
+
+$border-radius-outer-inset: 250px;
+$border-radius-mid-inset: 200px;
+$border-radius-inner-inset: 150px;
+
+$slider-width: 30px;
+
+@mixin slider-container-common($size) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:  calc(#{- $size} /2);
+  left: calc( (#{$spinner-size} - #{$size}) /2);
+}
+
+@mixin slider__side-container-common($size, $rotation: 0deg, $borderRadius: 200px) {
+  position: absolute;
+  width: $size;
+  height: $size;
+  border-radius: $borderRadius;// calc(#{$size} / 2);
+  clip: rect(0px, $size, $size, $borderRadius);
+  transform: rotate($rotation);
+}
+
+@mixin slider__slice($size, $bgColor, $borderRadius) {
+  position: absolute;
+  width: $size;
+  height: $size;
+  border-radius: $borderRadius; // calc(#{$size} /2);
+  clip: rect(0px, $borderRadius, $size, 0px);
+  background-color: $bgColor;
+}
+
+@mixin slider__inset($size, $borderRadiusInset) {
+  position: absolute;
+  width: calc(#{$size} - #{$slider-width} * 2);
+  height: calc(#{$size} - #{$slider-width} * 2);
+  top: $slider-width ;// calc((#{$size}  - 50px)) / 2;
+  left: $slider-width ;// calc((#{$size} - 50px)) / 2;
+  background-color: white;
+  border-radius: $borderRadiusInset; // calc((#{$size} - 50px) / 2);
+}
+
+@mixin slide__container-all($size, $color, $borderRadius, $borderRadiusInset) {
+  pointer-events: none;
+  @include slider-container-common($size);
+
+  .slider__right-container {
+    @include slider__side-container-common($size, 0deg, $borderRadius);
+  }
+
+  .slider__left-container {
+    @include slider__side-container-common($size, 180deg, $borderRadius);
+    .slider__slice {
+      background-color: $color;
+    }
+  }
+  .slider__slice {
+    @include  slider__slice($size, $color, $borderRadius);
+  }
+
+  .slider__inset {
+    @include slider__inset($size, $borderRadiusInset);
+  }
+
+  .slider__handle {
+    pointer-events: auto;
+    position: absolute;
+    width: 34px;
+    height: calc((#{$size} /2));
+    left: calc((#{$size}) / 2 - 17px);
+    top: 0;
+    transform: rotate(30deg);
+    transform-origin: center bottom;
+
+    .slider_handle-dot {
+      width: 34px;
+      height: 34px;
+      position: absolute;
+      left: 0;
+      top: -2px ;
+
+      border-radius: 17px;
+      background-color: #697a87;
+      box-shadow: 0 0 4px #000;
+      cursor: pointer;
+      pointer-events:auto;
+    }
+  }
+
+}
+
+.slider__container-outer{
+  @include slide__container-all($size_outer, $outer-color, $border-radius-outer, $border-radius-outer-inset);
+}
+
+.slider__container-mid{
+  @include slide__container-all($size-mid, $mid-color, $border-radius-mid, $border-radius-mid-inset);
+}
+
+.slider__container-inner{
+  @include slide__container-all($size-inner, $inner-color, $border-radius-inner, $border-radius-inner-inset);
+}
+
+.slider__center {
+  width: 190px;
+  height: 190px;
+  border-radius: 95px;
+  position: absolute;
+  top: - 95px;// calc((#{$spinner-size} - 160px) /2);
+  left: calc((#{$spinner-size} - 190px) /2);
+  background-color: $center-color;
+  display: flex;
+  align-content: center;
+}
+
+.slider__center-container {
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  -ms-user-select: none;
+}
+
+.slider__center-label {
+  font-size: 14px;
+}
+
+.slider__center-value {
+  font-size: 32px;
+  margin: 10px;
+}
+
+.slider__center-delta-content {
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .center-delta-label {
+    width: 20px;
+    text-align: left;
+  }
+
+  .center-delta-triangle {
+    display: inline-block;
+  }
+}
+

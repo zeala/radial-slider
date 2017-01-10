@@ -1,0 +1,10 @@
+{
+  "name": "radial_slider",
+  "version": false,
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
+    "react": "registry:dt/react#0.14.0+20160630100702",
+    "react-addons-test-utils": "registry:dt/react-addons-test-utils#0.14.0+20160427035638",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
+  }
+}

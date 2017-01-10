@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "noImplicitAny": false,
+      "removeComments": false,
+      "preserveConstEnums": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "noEmitOnError": true,
+      "jsx": "react",
+      "target": "es5",
+      "module": "commonjs"
+    }
+}

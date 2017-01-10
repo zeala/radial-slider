@@ -1,0 +1,62 @@
+{
+  "name": "radial-slider",
+  "version": "0.0.1",
+  "description": "Radial slider app",
+  "keywords": [
+    "radjal slider",
+    "react",
+    "scss"
+  ],
+  "authors": [
+    {
+      "name": "Elena Milliner"
+    }
+  ],
+
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --debug --config webpack.config.js --display-error-details",
+    "build": "cross-env NODE_ENV=dev webpack --config webpack.config.js --display-error-details",
+    "test": "mocha --opts mocha.opts"
+  },
+  "dependencies": {
+    "core-js": "2.4.1",
+    "es6-promise": "4.0.5",
+    "react": "15.2.1",
+    "react-dom": "15.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.3.7",
+    "awesome-typescript-loader": "2.1.1",
+    "chai": "3.5.0",
+    "copy-webpack-plugin": "3.0.1",
+    "cross-env": "2.0.0",
+    "css-loader": "0.23.1",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.9.0",
+    "html-webpack-plugin": "2.22.0",
+    "install": "0.8.1",
+    "json-loader": "0.5.4",
+    "mocha": "3.0.2",
+    "mocha-junit-reporter": "1.12.0",
+    "node-sass": "3.8.0",
+    "npm-run-all": "2.3.0",
+    "postcss-loader": "0.10.0",
+    "react-addons-test-utils": "15.2.1",
+    "react-transform-catch-errors": "1.0.2",
+    "react-transform-hmr": "1.0.4",
+    "redbox-react": "1.2.10",
+    "sass-loader": "4.0.0",
+    "sinon": "1.17.6",
+    "source-map-loader": "0.1.5",
+    "style-loader": "0.13.1",
+    "ts-node": "0.9.3",
+    "tslint": "3.13.0",
+    "tslint-loader": "2.1.5",
+    "typescript": "2.0.0",
+    "typings": "1.3.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
+  }
+}
